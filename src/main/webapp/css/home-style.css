@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ECF4D6;
+    font-family: 'Jura', serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    cursor: pointer;
+}
+
+section {
+    width: 90%;
+    padding: 5%;
+}
+
+.nav-bar {
+    display: flex;
+    background-color: #265073;
+    letter-spacing: 5px;
+    font-size: large;
+    color: #FFFF;
+    width: 100%;
+    height: 10%;
+    justify-content: center;
+}
+
+.nav-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 2%;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    background-color: #2D9596;
+    border: 15px solid #2D9596;
+    border-radius: 15px;
+    color: #FFFF;
+}
+
+#home {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-side {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    z-index: 10000;
+}
+
+.title {
+    height: auto;
+    align-content: center;
+    color: #265073;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 128px;
+    text-align: start;
+}
+
+.home-text {
+    color: #265073;
+    font-size: 24px;
+    width: 95%;
+    text-align: start;
+}
+
+.right-side {
+    width: 35%;
+    height: 100%;
+    z-index: -1;
+}
+
+.right-side img {
+    width: 100%;
+}
+
+#apropos {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+}
+
+.title-section {
+    font-size: 32px;
+    color: #2D9596;
+}
+
+.apropos-content {
+    display: flex;
+    width: 100%;
+    padding-top: 5%;
+    align-items: center;
+}
+
+.apropos-text {
+    width: 55%;
+}
+
+.apropos-image {
+    display: flex;
+    justify-content: center;
+    width: 45%;
+}
+
+.apropos-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+#formations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 24px;
+}
+
+.card-container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+    border: 2px solid #265073;
+    border-radius: 25px;
+    width: 25%;
+    height: auto;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-overflow: ellipsis;
+    gap: 5px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 250px;
+}
+
+.card-image {
+    height: 35%;
+    width: 50%;
+}
+
+.card-title {
+    color: #265073;
+    font-weight: bold;
+}
+
+.card-description {
+    width: 100%;
+    font-size: 16px;
+}
+
+.formation-left {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    font-size: 24px;
+    margin-top: 5%;
+}
+
+.formation-left p {
+    width: 55%;
+}
+
+.formation-right {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    margin-top: 5%;
+    text-align: end;
+}
+
+.formation-right p {
+    align-self: flex-end;
+    width: 55%;
+}
+
+.formation-title {
+    font-size: 32px;
+    color: #2D9596;
+}
+
+.home-footer {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #265073;
+    display: flex;
+    justify-content: space-around;
+    color: #FFFF;
+    width: 100%;
+}
+
+.logo {
+    font-size: 64px;
+    text-align: center;
+    align-content: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.fast-acces {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #FFFF;
+}
+
+.footer-title {
+    font-size: 32px;
+}
+
+.footer-information {
+    list-style: none;
+}
