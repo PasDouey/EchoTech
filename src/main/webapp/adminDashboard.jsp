@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Admin Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,9 +39,9 @@
 </head>
 <body>
     <div class="dashboard-container">
-        <h2>Welcome, !</h2>
-        <p>You have successfully logged in.</p>
-        <a href="login">login</a>
+        <h2>Welcome, Admin <%= ((User) session.getAttribute("user")).getEmail() %>!</h2>
+        <p>You have successfully logged in as an administrator.</p>
+        <a href="logout">Logout</a>
     </div>
 </body>
 </html>

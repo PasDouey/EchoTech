@@ -39,9 +39,9 @@
 </head>
 <body>
     <div class="dashboard-container">
-        <h2>Welcome, !</h2>
+        <h2>Welcome, <%= ((User) session.getAttribute("user")).getEmail() %>!</h2>
         <p>You have successfully logged in.</p>
-        <a href="login">login</a>
+        <a href="logout">Logout</a>
     </div>
 </body>
 </html>

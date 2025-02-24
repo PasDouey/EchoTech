@@ -1,0 +1,17 @@
+com\schoolmanagement\dao\StudentDAO.class
+com\schoolmanagement\model\User.class
+com\schoolmanagement\model\Class.class
+com\schoolmanagement\dao\MarksDAO.class
+com\schoolmanagement\dao\ClassDAO.class
+com\schoolmanagement\model\Student.class
+com\schoolmanagement\dao\ProfessorDAO.class
+com\schoolmanagement\servlet\aa.class
+com\schoolmanagement\util\TestMySQLDriver.class
+com\schoolmanagement\model\Professor.class
+com\schoolmanagement\servlet\StudentServlet.class
+com\schoolmanagement\servlet\LoginServlet.class
+com\schoolmanagement\servlet\LogoutServlet.class
+com\schoolmanagement\model\Marks.class
+com\schoolmanagement\util\DatabaseUtil.class
+com\schoolmanagement\dao\UserDAO.class
+com\schoolmanagement\test\TestConnection.class
