@@ -14,7 +14,9 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    
+    
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Get email and password from the login form
@@ -50,5 +52,13 @@ public class LoginServlet extends HttpServlet {
             // Login failed
             response.sendRedirect("login.jsp?error=1");
         }
+    }
+    
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    	response.sendRedirect("login.jsp");
+    	
+    	
     }
 }
