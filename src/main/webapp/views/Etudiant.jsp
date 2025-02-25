@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="com.schoolmanagement.model.User" %>
 <%@ page import="com.schoolmanagement.model.Student" %>
-<%@ page import="com.schoolmanagement.model.Marks" %>
+<%@ page import="com.schoolmanagement.model.Timetable" %>
 <%@ page import="com.schoolmanagement.model.Absence" %>
+<%@ page import="com.schoolmanagement.model.Marks" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espace Etudiant</title>
+    <title>Espace Étudiant</title>
     <link rel="stylesheet" href="css/Etudiant.css">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -19,7 +19,6 @@
             <div class="profile">
                 <img src="assets/profile_male.svg" alt="Avatar">
                 <%
-                    User user = (User) session.getAttribute("user");
                     Student student = (Student) request.getAttribute("student");
                     if (student != null) {
                 %>
@@ -34,13 +33,12 @@
             </div>
             <nav>
                 <a href="student?section=emploi">Emploi</a>
-				<a href="student?section=notes">Notes</a>
-				<a href="student?section=absences">Absences</a>
-
+                <a href="student?section=notes">Notes</a>
+                <a href="student?section=absences">Absences</a>
                 <a href="logout" class="logout2">Déconnexion</a>
             </nav>
         </aside>
-        <main class="content" id="main-content">
+        <main class="content">
             <header>
                 <h1 id="section-title"><%= request.getAttribute("sectionTitle") %></h1>
                 <hr>
@@ -50,16 +48,55 @@
                 <%
                     String section = (String) request.getAttribute("section");
                     if ("emploi".equals(section)) {
+                        List<Timetable> timetable = (List<Timetable>) request.getAttribute("timetable");
+                        if (timetable != null && !timetable.isEmpty()) {
                 %>
-                    <div style="text-align: center; margin-top: 20px;">
-                        <img src="assets/emploi.webp" alt="Emploi du temps" class="emploi-image">
-                    </div>
-                    <div class="export-button-container">
-                        <button class="export-button">
-                            <img src="assets/download-small (1).png" alt="Download" class="download-icon">
-                            Exporter
-                        </button>
-                    </div>
+                            <div style="text-align: center; margin-top: 20px;">
+                                <div class="custom-timetable-container">
+                                    <h2 class="custom-timetable-title">Emploi du Temps</h2>
+                                    <table class="custom-timetable">
+                                        <thead>
+                                            <tr>
+                                                <th>Horaires</th>
+                                                <th>Lundi</th>
+                                                <th>Mardi</th>
+                                                <th>Mercredi</th>
+                                                <th>Jeudi</th>
+                                                <th>Vendredi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%
+                                                for (Timetable row : timetable) {
+                                            %>
+                                                <tr>
+                                                    <td><%= row.getTimeSlot() %></td>
+                                                    <td><%= row.getMonday() %></td>
+                                                    <td><%= row.getTuesday() %></td>
+                                                    <td><%= row.getWednesday() %></td>
+                                                    <td><%= row.getThursday() %></td>
+                                                    <td><%= row.getFriday() %></td>
+                                                </tr>
+                                            <%
+                                                }
+                                            %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                <%
+                        } else {
+                %>
+                            <p>Aucun emploi du temps disponible.</p>
+                <%
+                        }
+                %>
+                        <div class="export-button-container">
+                            <button class="export-button">
+                                <img src="assets/download-small (1).png" alt="Download" class="download-icon">
+                                Exporter
+                            </button>
+                        </div>
                 <%
                     } else if ("notes".equals(section)) {
                         List<Marks> grades = (List<Marks>) request.getAttribute("grades");

@@ -39,10 +39,20 @@ public class Marks {
     public String getSubject() {
     	ClassDAO cdao = new ClassDAO();
     	Class c = cdao.getClassById(this.classId); 
-        return c.getName();
+        return c!=null?  c.getName() : "uknown";
     }
     
     public void setMark(double mark) {
         this.mark = mark;
+    }
+    
+    @Override
+    public String toString() {
+        return "Marks{" +
+                "studentId=" + studentId +
+                ", classId=" + classId +
+                ", mark=" + mark +
+                ", subject='" + getSubject() + "'" +
+                '}';
     }
 }

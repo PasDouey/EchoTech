@@ -75,7 +75,7 @@ public class ClassDAO {
     
     public List<Marks> getMarksByClassId(int class_id){
     	List<Marks> classes = new ArrayList<>();
-        String sql = "SELECT * FROM Marks m JOIN Class c on c.id=m.class_id  WHERE c.id = ?";
+        String sql = "SELECT * FROM Marks m JOIN Class c ON c.id=m.class_id  WHERE c.id = ?";
         
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -177,29 +177,56 @@ public class ClassDAO {
     
     public Map<String, String> getStudentDetailsByMarks(List<Marks> marksList) {
         Map<String, String> studentDetailsMap = new HashMap<>();
-        String sql = "SELECT c.name as subject, s.first_name, s.last_name, s.cne " +
-                "FROM marks m " +
-                "JOIN student s ON m.student_id = s.user_id " +
-                "JOIN class c ON m.class_id = c.id " +
-                "WHERE m.class_id = ?";
+        String sql = "SELECT c.name as subject, s.first_name, s.last_name, s.cne, m.mark " +
+                     "FROM marks m " +
+                     "JOIN student s ON m.student_id = s.user_id " +
+                     "JOIN class c ON m.class_id = c.id " +
+                     "WHERE m.student_id = ? AND m.class_id=?";
 
+        for (Marks mark : marksList) {
+            try (Connection conn = DatabaseUtil.getConnection();
+                 PreparedStatement stmt = conn.prepareStatement(sql)) {
+            	System.out.println(mark);
+                stmt.setInt(1, mark.getStudentId());
+                stmt.setInt(2, mark.getClassId());
 
-        try (Connection conn = DatabaseUtil.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            for (Marks mark : marksList) {
-                stmt.setInt(1, mark.getClassId()); // Assuming Marks has getClassId()
                 ResultSet rs = stmt.executeQuery();
                 while (rs.next()) {
                     String studentName = rs.getString("first_name") + " " + rs.getString("last_name");
                     String cne = rs.getString("cne");
-                    studentDetailsMap.put(rs.getString("subject"), studentName + " (CNE: " + cne + ")");
+                    String subject = rs.getString("subject");
+
+                    String studentDetail = studentName + " (CNE: " + cne +")" ;
+
+                    studentDetailsMap.put(subject, studentDetail);
                 }
+                
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return studentDetailsMap;
+    }
+    public String getStudentNameById(int studentId) {
+        String studentName = null;
+        String sql = "SELECT first_name, last_name FROM student WHERE user_id = ?";
+
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             
+            stmt.setInt(1, studentId);
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                String firstName = rs.getString("first_name");
+                String lastName = rs.getString("last_name");
+                studentName = firstName + " " + lastName;  // Concatenate first and last name
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return studentDetailsMap;
+        
+        return studentName;
     }
 
 }
