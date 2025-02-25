@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
             title.innerText = "Emploi du temps";
             content.innerHTML = `
                 <div style="text-align: center; margin-top: 20px;">
-                    <img src="images/emploi.webp" alt="Emploi du temps" class = "emploi-image"">
+                    <img src="assets/emploi.webp" alt="Emploi du temps" class = "emploi-image"">
                 </div>
                 <div class="export-button-container">
                     <button class="export-button">
-                        <img src="images/download-small (1).png" alt="Download" class="download-icon">
+                        <img src="assets/download-small (1).png" alt="Download" class="download-icon">
                         Exporter
                     </button>
                 </div>

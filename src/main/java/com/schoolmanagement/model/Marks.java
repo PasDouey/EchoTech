@@ -1,5 +1,6 @@
 package com.schoolmanagement.model;
-
+import com.schoolmanagement.model.Class;
+import com.schoolmanagement.dao.ClassDAO;
 public class Marks {
     private int studentId; // Foreign key to Student
     private int classId;   // Foreign key to Class
@@ -34,7 +35,13 @@ public class Marks {
     public double getMark() {
         return mark;
     }
-
+    
+    public String getSubject() {
+    	ClassDAO cdao = new ClassDAO();
+    	Class c = cdao.getClassById(this.classId); 
+        return c.getName();
+    }
+    
     public void setMark(double mark) {
         this.mark = mark;
     }

@@ -27,23 +27,25 @@ public class LoginServlet extends HttpServlet {
         // Authenticate the user
         UserDAO userDAO = new UserDAO();
         User user = userDAO.getUserByEmail(email);
-
+        System.out.println(user);
+        System.out.println(user.getPassword());
         if (user != null && user.getPassword().equals(password)) {
             // Login successful
             HttpSession session = request.getSession();
-            System.out.println(user);
+            
             session.setAttribute("user", user); // Store user object in session
-
+            session.setAttribute("userId", user.getId());
             // Redirect based on user role
             switch (user.getRole()) {
                 case "admin":
                     response.sendRedirect("adminDashboard.jsp");
                     break;
                 case "professor":
-                    response.sendRedirect("professorDashboard.jsp");
+                    response.sendRedirect("professor");
                     break;
                 case "student":
-                    response.sendRedirect("studentDashboard.jsp");
+                	System.out.println("going student");
+                    response.sendRedirect("student");
                     break;
                 default:
                     response.sendRedirect("dashboard.jsp");

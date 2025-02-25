@@ -18,6 +18,7 @@ body {
 
 /* Sidebar */
 .sidebar {
+	height:100%;
     position: fixed;
     width: 230px;
     background-color: #265073;

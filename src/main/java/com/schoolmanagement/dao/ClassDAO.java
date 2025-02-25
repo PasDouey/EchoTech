@@ -1,6 +1,8 @@
 package com.schoolmanagement.dao;
 
 import com.schoolmanagement.model.Class;
+import com.schoolmanagement.model.Marks;
+import com.schoolmanagement.model.Absence;
 import com.schoolmanagement.util.DatabaseUtil;
 
 import java.sql.Connection;
@@ -9,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class ClassDAO {
 
@@ -46,6 +50,81 @@ public class ClassDAO {
         }
         return clazz;
     }
+    
+    public List<Class> getClassesByProfessorId(int id) {
+        List<Class> classes = new ArrayList<>();
+        String sql = "SELECT * FROM Class WHERE professor_id = ?";
+        
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ps.setInt(1, id); // Définition du paramètre
+            
+            try (ResultSet rs = ps.executeQuery()) { // Exécution après définition du paramètre
+                while (rs.next()) {
+                	Class c = new Class(rs.getInt("id"),rs.getString("name"),id,rs.getInt("year"));
+                    classes.add(c);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return classes;
+    }
+    
+    public List<Marks> getMarksByClassId(int class_id){
+    	List<Marks> classes = new ArrayList<>();
+        String sql = "SELECT * FROM Marks m JOIN Class c on c.id=m.class_id  WHERE c.id = ?";
+        
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+        	ps.setInt(1, class_id);
+            
+            try (ResultSet rs = ps.executeQuery()) { // Exécution après définition du paramètre
+                while (rs.next()) {
+                	Marks m = new Marks();
+                	m.setClassId(class_id);
+                	m.setMark( rs.getDouble("mark"));
+                	m.setStudentId(rs.getInt("student_id"));
+                    classes.add(m);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return classes;
+    
+    }
+    
+    public List<Absence> getAbsencesByClassId(int id) {
+        List<Absence> absences = new ArrayList<>();
+        String sql = "SELECT * FROM Absence WHERE class_id = ?";
+        
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ps.setInt(1, id);
+            
+            try (ResultSet rs = ps.executeQuery()) { // Exécution après définition du paramètre
+                while (rs.next()) {
+                    Absence a = new Absence();
+                    a.setClassId(id);
+                    a.setDate(rs.getDate("date"));
+                    a.setStudentId(rs.getInt("student_id"));
+                    a.setJustified(rs.getBoolean("justified"));
+                    absences.add(a);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return absences;
+    }
+
 
     // Get all classes
     public List<Class> getAllClasses() {
@@ -94,4 +173,33 @@ public class ClassDAO {
             e.printStackTrace();
         }
     }
+    
+    
+    public Map<String, String> getStudentDetailsByMarks(List<Marks> marksList) {
+        Map<String, String> studentDetailsMap = new HashMap<>();
+        String sql = "SELECT c.name as subject, s.first_name, s.last_name, s.cne " +
+                "FROM marks m " +
+                "JOIN student s ON m.student_id = s.user_id " +
+                "JOIN class c ON m.class_id = c.id " +
+                "WHERE m.class_id = ?";
+
+
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            for (Marks mark : marksList) {
+                stmt.setInt(1, mark.getClassId()); // Assuming Marks has getClassId()
+                ResultSet rs = stmt.executeQuery();
+                while (rs.next()) {
+                    String studentName = rs.getString("first_name") + " " + rs.getString("last_name");
+                    String cne = rs.getString("cne");
+                    studentDetailsMap.put(rs.getString("subject"), studentName + " (CNE: " + cne + ")");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return studentDetailsMap;
+    }
+
 }
