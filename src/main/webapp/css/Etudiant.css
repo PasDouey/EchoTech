@@ -68,7 +68,7 @@ nav a {
     text-align: center;
 }
 .logout2 {
-    margin-top: 220px;
+    margin-top: 130px;
     border-radius: 10px;
 }
 .content {
@@ -95,21 +95,12 @@ header hr{
     width: 785px;
     margin-top: 10px;
 }
-.emploi-image-container {
-    text-align: center;
-    margin-top: 5px;
-}
 
-.emploi-image {
-    max-width: 70%;
-    height: auto;
-}
 .export-button-container {
     position: fixed;
     bottom: 20px;
     right: 120px;
 }
-
 
 .export-button {
     display: flex;
@@ -133,9 +124,43 @@ header hr{
     width: 16px;
     height: 16px;
 }
+/*emploi*/
+.custom-timetable-container {
+    width: 70%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
 
+.custom-timetable-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
+.custom-timetable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
 
+.custom-timetable th, .custom-timetable td {
+    border: 1px solid #ccc;
+    padding: 12px;
+}
+
+.custom-timetable th {
+    background-color: grey;
+    color: white;
+}
+
+/* Custom cell colors */
+.custom-cell-teal { background-color: #2D9596; color: white; }
+.custom-cell-blue { background-color: #265073; color: white; }
+.custom-cell-lightgreen { background-color: #ECF4D6; color: black; }
+
+/*Notes table*/
 .notes-container {
     padding: 20px;
     max-width: 800px;

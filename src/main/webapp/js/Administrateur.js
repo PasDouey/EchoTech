@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <td>K0000000</td>
                                 <td>College</td>
                                 <td class="action-buttons">
-                                    <button class="edit"><img src="images/edit (1).png" alt="Modifier"></button>
-                                    <button class="delete"><img src="images/x-button.png" alt="Supprimer"></button>
+                                    <button class="edit"><img src="assets/edit (1).png" alt="Modifier"></button>
+                                    <button class="delete"><img src="assets/x-button.png" alt="Supprimer"></button>
                                 </td>
                             </tr>
                             <tr>
@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <td>M0000000</td>
                                 <td>College</td>
                                 <td class="action-buttons">
-                                    <button class="edit"><img src="images/edit (1).png" alt="Modifier"></button>
-                                    <button class="delete"><img src="images/x-button.png" alt="Supprimer"></button>
+                                    <button class="edit"><img src="assets/edit (1).png" alt="Modifier"></button>
+                                    <button class="delete"><img src="assets/x-button.png" alt="Supprimer"></button>
                                 </td>
                             </tr>
                         </tbody>
@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="search-container2">
                     <input type="text" placeholder="Chercher">
                     <button class="search-btn2">
-                        <img src="images/search (BLUE).svg" alt="Rechercher">
+                        <img src="assets/search (BLUE).svg" alt="Rechercher">
                     </button>
                     <button class="add-btn2">
-                        <img src="images/add-user.png" alt="Ajouter">
+                        <img src="assets/add-user.png" alt="Ajouter">
                     </button>
                 </div>
             </header>
@@ -75,80 +75,81 @@ document.addEventListener("DOMContentLoaded", function () {
             <section class="teachers">
                 <!-- 6 Cartes enseignants -->
                 <div class="teacher-card">
-                    <img src="images/profile_male.svg" alt="Enseignant">
+                    <img src="assets/profile_male.svg" alt="Enseignant">
                     <h2>Youness Ouchen</h2>
                     <p>CIN :</p>
                     <p>TEL :</p>
                     <p>Spécialité :</p>
                     <p>Salaire :</p>
                     <div class="card-actions2">
-                        <button class="edit2"><img src="images/edit (1).png" alt="Modifier"></button>
-                        <button class="delete2"><img src="images/x-button.png" alt="Supprimer"></button>
+                        <button class="edit2"><img src="assets/edit (1).png" alt="Modifier"></button>
+                        <button class="delete2"><img src="assets/x-button.png" alt="Supprimer"></button>
                     </div>
                 </div>
 
                 <div class="teacher-card">
-                    <img src="images/profile-female.svg" alt="Enseignant">
+                    <img src="assets/profile-female.svg" alt="Enseignant">
                     <h2>Youness Ouchen</h2>
                     <p>CIN :</p>
                     <p>TEL :</p>
                     <p>Spécialité :</p>
                     <p>Salaire :</p>
                     <div class="card-actions2">
-                        <button class="edit2"><img src="images/edit (1).png" alt="Modifier"></button>
-                        <button class="delete2"><img src="images/x-button.png" alt="Supprimer"></button>
+                        <button class="edit2"><img src="assets/edit (1).png" alt="Modifier"></button>
+                        <button class="delete2"><img src="assets/x-button.png" alt="Supprimer"></button>
                     </div>
                 </div>
 
                 <div class="teacher-card">
-                    <img src="images/profile_male.svg" alt="Enseignant">
+                    <img src="assets/profile_male.svg" alt="Enseignant">
                     <h2>Youness Ouchen</h2>
                     <p>CIN :</p>
                     <p>TEL :</p>
                     <p>Spécialité :</p>
                     <p>Salaire :</p>
                     <div class="card-actions2">
-                        <button class="edit2"><img src="images/edit (1).png" alt="Modifier"></button>
-                        <button class="delete2"><img src="images/x-button.png" alt="Supprimer"></button>
+                        <button class="edit2"><img src="assets/edit (1).png" alt="Modifier"></button>
+                        <button class="delete2"><img src="assets/x-button.png" alt="Supprimer"></button>
                     </div>
                 </div>
 
                 <div class="teacher-card">
-                    <img src="images/profile-female.svg" alt="Enseignant">
+                    <img src="assets/profile-female.svg" alt="Enseignant">
                     <h2>Youness Ouchen</h2>
                     <p>CIN :</p>
                     <p>TEL :</p>
                     <p>Spécialité :</p>
                     <p>Salaire :</p>
                     <div class="card-actions2">
-                        <button class="edit2"><img src="images/edit (1).png" alt="Modifier"></button>
-                        <button class="delete2"><img src="images/x-button.png" alt="Supprimer"></button>
+                        <button class="edit2"><img src="assets/edit (1).png" alt="Modifier"></button>
+                        <button class="delete2"><img src="assets/x-button.png" alt="Supprimer"></button>
                     </div>
                 </div>
 
                 <div class="teacher-card">
-                    <img src="images/profile_male.svg" alt="Enseignant">
+                    <img src="assets/profile_male.svg" alt="Enseignant">
                     <h2>Youness Ouchen</h2>
                     <p>CIN :</p>
                     <p>TEL :</p>
                     <p>Spécialité :</p>
                     <p>Salaire :</p>
                     <div class="card-actions2">
-                        <button class="edit2"><img src="images/edit (1).png" alt= "Modifier"></button>
-                        <button class="delete2"><img src="images/x-button.png" alt="Supprimer"></button>
+                        <button class="edit2"><img src="assets/edit (1).png" alt= "Modifier"></button>
+                        <button class="delete2"><img src="assets/x-button.png" alt="Supprimer"></button>
                     </div>
                 </div>
 
+                
                 <div class="teacher-card">
-                    <img src="images/profile-female.svg" alt="Enseignant">
+                    <img src="assets/profile-female.svg" alt="Enseignant">
                     <h2>Youness Ouchen</h2>
                     <p>CIN :</p>
                     <p>TEL :</p>
                     <p>Spécialité :</p>
                     <p>Salaire :</p>
                     <div class="card-actions2">
-                        <button class="edit2"><img src="images/edit (1).png" alt = "Modifier"></button>
-                        <button class="delete2"><img src="images/x-button.png" alt="Supprimer"></button>
+                        <button class="edit2"><img src="assets/edit (1).png" alt = "Modifier"></button>
+                        <button class="delete2"><img src="assets/x-button.png" alt="Supprimer"></button>
                     </div>
                 </div>
             </section>
@@ -164,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="stats-grid">
                         <div class="stat-card">
                             <div class="stat-icon">
-                                <img src="images/graduated.png" alt="Students Icon">
+                                <img src="assets/graduated.png" alt="Students Icon">
                             </div>
                             <div class="stat-content">
                                 <div class="stat-label">Total Étudiants</div>
@@ -174,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <img src="images/teacher (1).png" alt="Teachers Icon">
+                            <img src="assets/teacher (1).png" alt="Teachers Icon">
                         </div>
                         <div class="stat-content">
                             <div class="stat-label">Total Enseignants</div>
@@ -184,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <img src="images/progressive.png" alt="Success Rate Icon">
+                            <img src="assets/progressive.png" alt="Success Rate Icon">
                         </div>
                         <div class="stat-content">
                                 <div class="stat-label">Teaux de Réussite</div>
@@ -194,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <img src="images/absentism.png" alt="Absence Rate Icon">
+                            <img src="assets/absentism.png" alt="Absence Rate Icon">
                          </div>
                         <div class="stat-content">
                             <div class="stat-label">Teaux d'Abscence</div>
@@ -205,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <div class="export-button-container">
                     <button class="export-button">
-                        <img src="images/download-small (1).png" alt="Download" class="download-icon">
+                        <img src="assets/download-small (1).png" alt="Download" class="download-icon">
                         Exporter
                     </button>
                 </div>

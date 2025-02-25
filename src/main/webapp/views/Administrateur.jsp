@@ -12,10 +12,12 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="profile">
-                <img src="images/profile_male.svg" alt="Avatar">
+                <img src="assets/profile_male.svg" alt="Avatar">
                 <p>Youness Ouchen</p>
             </div>
             <nav>
+                <!-- <a href="">Accueil</a>-->
+                <a href="">Accueil</a>
                 <a href="#" onclick="showSection('Eleves')">Eleves</a>
                 <a href="#" onclick="showSection('Enseignants')">Enseignants</a>
                 <a href="#" onclick="showSection('Rapports')">Rapports</a>
@@ -60,8 +62,8 @@
                                 <td>K0000000</td>
                                 <td>College</td>
                                 <td class="action-buttons">
-                                    <button class="edit"><img src="images/edit (1).png" alt="Modifier"></button>
-                                    <button class="delete"><img src="images/x-button.png" alt="Supprimer"></button>
+                                    <button class="edit"><img src="assets/edit (1).png" alt="Modifier"></button>
+                                    <button class="delete"><img src="assets/x-button.png" alt="Supprimer"></button>
                                 </td>
                             </tr>
                             <tr>
@@ -71,8 +73,8 @@
                                 <td>M0000000</td>
                                 <td>College</td>
                                 <td class="action-buttons">
-                                    <button class="edit"><img src="images/edit (1).png" alt="Modifier"></button>
-                                    <button class="delete"><img src="images/x-button.png" alt="Supprimer"></button>
+                                    <button class="edit"><img src="assets/edit (1).png" alt="Modifier"></button>
+                                    <button class="delete"><img src="assets/x-button.png" alt="Supprimer"></button>
                                 </td>
                             </tr>
                         </tbody>

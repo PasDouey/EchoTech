@@ -6,12 +6,54 @@ document.addEventListener("DOMContentLoaded", function () {
         if (section === "emploi") {
             title.innerText = "Emploi du temps";
             content.innerHTML = `
-                <div style="text-align: center; margin-top: 20px;">
-                    <img src="images/emploi.webp" alt="Emploi du temps" class = "emploi-image"">
+                <div class="custom-timetable-container">
+                    <h2 class="custom-timetable-title">Emploi du temps première partie</h2>
+                    <table class="custom-timetable">
+                        <thead>
+                            <tr>
+                                <th>Horaires</th>
+                                <th>Lundi</th>
+                                <th>Mardi</th>
+                                <th>Jeudi</th>
+                                <th>Vendredi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>08h30 - 10h15</td>
+                                <td class="custom-cell-teal">-</td>
+                                <td class="custom-cell-blue">Cours JEE groupe 1</td>
+                                <td class="custom-cell-lightgreen">-</td>
+                                <td class="custom-cell-teal">Tp JEE groupe 1</td>
+                            </tr>
+                            <tr>
+                                <td>10h30 - 12h15</td>
+                                <td class="custom-cell-blue">Cours JEE groupe 2</td>
+                                <td class="custom-cell-lightgreen">-</td>
+                                <td class="custom-cell-teal">-</td>
+                                <td class="custom-cell-blue">-</td>
+                            </tr>
+                            <tr>
+                                <td>14h30 - 16h15</td>
+                                <td class="custom-cell-lightgreen">Tp JEE groupe 1</td>
+                                <td class="custom-cell-teal">-</td>
+                                <td class="custom-cell-blue">Td JEE groupe 1</td>
+                                <td class="custom-cell-lightgreen">-</td>
+                            </tr>
+                            <tr>
+                                <td>16h30 - 18h15</td>
+                                <td class="custom-cell-teal">Td JEE groupe 2</td>
+                                <td class="custom-cell-blue">-</td>
+                                <td class="custom-cell-lightgreen">-</td>
+                                <td class="custom-cell-teal">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+
                 <div class="export-button-container">
                     <button class="export-button">
-                        <img src="images/download-small (1).png" alt="Download" class="download-icon">
+                        <img src="assets/download-small (1).png" alt="Download" class="download-icon">
                         Exporter
                     </button>
                 </div>
