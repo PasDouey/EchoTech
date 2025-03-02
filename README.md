@@ -71,13 +71,10 @@ Build and Run the Application
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-repo/school-management-system.git
+git clone https://github.com/PasDouey/JEE.git
 ```
-Navigate to the project directory:
+Navigate to the project directory
 
-```bash
-cd school-management-system
-```
 Build the project using Maven:
 
 ```bash
