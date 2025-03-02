@@ -26,6 +26,27 @@ public class AbsenceDAO {
             e.printStackTrace();
         }
     }
+    
+    public List<Absence> getAllAbsences(){
+    	List<Absence> absences = new ArrayList<>();
+        String sql = "SELECT * FROM Absences ";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Absence absence = new Absence();
+                absence.setId(rs.getInt("id"));
+                absence.setStudentId(rs.getInt("student_id"));
+                absence.setClassId(rs.getInt("class_id"));
+                absence.setDate(rs.getDate("date"));
+                absence.setJustified(rs.getBoolean("justified"));
+                absences.add(absence);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return absences;
+    }
 
     // Get all absences for a specific student
     public List<Absence> getAbsencesByStudentId(int studentId) {
@@ -51,9 +72,13 @@ public class AbsenceDAO {
     }
 
     // Get all absences for a specific class
-    public List<Absence> getAbsencesByClassId(int classId) {
+    public static List<Absence> getAbsencesByClassId(int classId) {
         List<Absence> absences = new ArrayList<>();
-        String sql = "SELECT * FROM Absences WHERE class_id = ?";
+        String sql = "SELECT a.id, a.student_id, u.first_name, u.last_name, a.class_id, a.date, c.name as subject, a.justified " +
+                     "FROM Absences a " +
+                     "JOIN student u ON a.student_id = u.user_id " +
+                     "JOIN class c ON c.id = a.class_id "+
+                     "WHERE a.class_id = ?";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, classId);
@@ -62,8 +87,10 @@ public class AbsenceDAO {
                 Absence absence = new Absence();
                 absence.setId(rs.getInt("id"));
                 absence.setStudentId(rs.getInt("student_id"));
+                absence.setStudentName(rs.getString("first_name") + " " + rs.getString("last_name")); // Set student name
                 absence.setClassId(rs.getInt("class_id"));
                 absence.setDate(rs.getDate("date"));
+                absence.setSubject(rs.getString("subject"));
                 absence.setJustified(rs.getBoolean("justified"));
                 absences.add(absence);
             }
@@ -72,7 +99,6 @@ public class AbsenceDAO {
         }
         return absences;
     }
-
     // Update an absence record
     public void updateAbsence(Absence absence) {
         String sql = "UPDATE Absences SET student_id = ?, class_id = ?, date = ?, justified = ? WHERE id = ?";

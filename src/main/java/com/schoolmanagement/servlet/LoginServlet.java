@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         UserDAO userDAO = new UserDAO();
         User user = userDAO.getUserByEmail(email);
         System.out.println(user);
-        System.out.println(user.getPassword());
+        System.out.println(password);
         if (user != null && user.getPassword().equals(password)) {
             // Login successful
             HttpSession session = request.getSession();
@@ -38,10 +38,12 @@ public class LoginServlet extends HttpServlet {
             // Redirect based on user role
             switch (user.getRole()) {
                 case "admin":
-                    response.sendRedirect("adminDashboard.jsp");
+                    response.sendRedirect("admin-dashboard");
                     break;
                 case "professor":
-                    response.sendRedirect("professor");
+                	System.out.println("going professor");
+                	response.sendRedirect("professor");
+                    
                     break;
                 case "student":
                 	System.out.println("going student");

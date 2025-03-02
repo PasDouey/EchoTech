@@ -6,8 +6,11 @@ import java.util.Date;
 public class Absence {
     private int id;
     private int studentId;
+    private String studentName;
     private int classId;
     private Date date;
+    private String subject;
+
     private boolean justified;
 
     // Getters and Setters
@@ -21,6 +24,14 @@ public class Absence {
 
     public int getStudentId() {
         return studentId;
+    }
+    
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public void setStudentId(int studentId) {
@@ -42,6 +53,7 @@ public class Absence {
     public void setDate(Date date) {
         this.date = date;
     }
+    
 
     public boolean isJustified() {
         return justified;
@@ -52,7 +64,10 @@ public class Absence {
     }
     
     public String getSubject() {
-    	ClassDAO cdo = new ClassDAO();
-    	return cdo.getClassById(this.classId).getName();
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }

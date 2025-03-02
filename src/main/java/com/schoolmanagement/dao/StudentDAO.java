@@ -53,6 +53,29 @@ public class StudentDAO {
         }
         return student;
     }
+    
+    public Student getStudentByUserCne(String cne) {
+        String sql = "SELECT * FROM Student WHERE cne = ?";
+        Student student = null;
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, cne);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                student = new Student();
+                student.setUserId(rs.getInt("user_id"));
+                student.setFirstName(rs.getString("first_name"));
+                student.setLastName(rs.getString("last_name"));
+                student.setCne(rs.getString("cne"));
+                student.setStudyLevel(rs.getString("study_level"));
+                student.setStatus(rs.getString("status"));
+                student.setBirthday(rs.getDate("birthday"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return student;
+    }
 
     // Get all students
     public List<Student> getAllStudents() {

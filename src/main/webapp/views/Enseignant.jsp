@@ -106,12 +106,12 @@
                 <%
                         }
                 %>
-                        <div class="export-button-container">
+                       <!-- <div class="export-button-container">
                             <button class="export-button">
                                 <img src="assets/download-small (1).png" alt="Download" class="download-icon">
                                 Exporter
                             </button>
-                        </div>
+                        </div> -->
                 <%
                     } else if ("notes".equals(section)) {
                         List<StudentMarks> studentMarksList = (List<StudentMarks>) request.getAttribute("studentMarksList");
@@ -139,6 +139,28 @@
                                         <%
                                             }
                                         %>
+                                        <tr>
+                                        	<form action="professor" method = "post">
+                                        	<input type="hidden" name="classSelection" value="<%= request.getAttribute("selectedClass") %>">
+    										<input type="hidden" name="section" value="<%= request.getAttribute("section") %>">
+    										<td>
+                                        		<input type="text" name="studentcne" placeholder="Cne de l'étudiant">
+                                        		</td>
+                                        		<td>
+                                        			<%= request.getAttribute("selectedClass") %>
+                                        			<input type="hidden" name="classId" value="<%= request.getAttribute("classId") %>">
+                                        		</td>
+                                        		<td>
+                                        			<input type="text" name="mark" placeholder="note">
+                                        		</td>
+                                        			
+                                        		
+                                        		
+                                        		<td>
+                                        			<input type="submit" value="ajouter">
+                                        		</td>
+                                        	</form>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -154,12 +176,14 @@
                 %>
                             <div class="absences-container">
                                 <h2>Absences</h2>
-                                <table>
+                                <a href="">Ajouter une abscence </a>
+                                <table class="abscence-table">
                                     <thead>
                                         <tr>
-                                            <th>Date</th>
-                                            <th>Matière</th>
-                                            <th>Justifiée</th>
+                                            <th>Élève</th> <!-- New column for student name -->
+							                <th>Date</th>
+							                <th>Matière</th>
+							                <th>Justifiée</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -167,10 +191,11 @@
                                             for (Absence absence : absences) {
                                         %>
                                             <tr>
-                                                <td><%= absence.getDate() %></td>
-                                                <td><%= absence.getSubject() %></td>
-                                                <td><%= absence.isJustified() ? "Oui" : "Non" %></td>
-                                            </tr>
+					                            <td><%= absence.getStudentName() %></td> <!-- Display student name -->
+					                            <td><%= absence.getDate() %></td>
+					                            <td><%= absence.getSubject() %></td>
+					                            <td><%= absence.isJustified() ? "Oui" : "Non" %></td>
+					                        </tr>
                                         <%
                                             }
                                         %>

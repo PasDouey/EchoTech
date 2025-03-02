@@ -25,7 +25,26 @@ public class MarksDAO {
             e.printStackTrace();
         }
     }
-
+    
+    public List<Marks> getAllMarks(){
+    	List<Marks> marks = new ArrayList<>();
+        String sql = "SELECT * FROM Marks ";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Marks mark = new Marks();
+                mark.setStudentId(rs.getInt("student_id"));
+                mark.setClassId(rs.getInt("class_id"));
+                mark.setMark(rs.getDouble("mark"));
+                marks.add(mark);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return marks;
+    }
     // Get marks by student ID
     public List<Marks> getMarksByStudentId(int studentId) {
         List<Marks> marks = new ArrayList<>();

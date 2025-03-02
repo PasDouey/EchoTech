@@ -137,7 +137,7 @@
                 %>
                             <div class="absences-container">
                                 <h2>Absences</h2>
-                                <table>
+                                <table class="abscence-table" >
                                     <thead>
                                         <tr>
                                             <th>Date</th>
@@ -150,9 +150,9 @@
                                             for (Absence absence : absences) {
                                         %>
                                             <tr>
-                                                <td><%= absence.getDate() %></td>
-                                                <td><%= absence.getSubject() %></td>
-                                                <td><%= absence.isJustified() ? "Oui" : "Non" %></td>
+                                                <td><%= absence.getDate() %>  </td>
+                                                <td><%= absence.getSubject() %>  </td>
+                                                <td><%= absence.isJustified() ? "Oui" : "Non" %>  </td>
                                             </tr>
                                         <%
                                             }
